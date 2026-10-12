@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patroni UI</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%2394a3b8'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body class="h-screen overflow-hidden bg-slate-100 text-slate-900 flex flex-col">
+  <header id="app-header" class="hidden shrink-0 bg-brand text-white shadow">
+    <div class="mx-auto max-w-screen-2xl px-4 py-3 flex items-center gap-4">
+      <button id="menu-button" class="lg:hidden shrink-0 p-1.5 -ml-1 rounded hover:bg-white/10" aria-label="Open menu">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+      </button>
+      <a href="/" id="brand-button" class="shrink-0 flex items-center gap-2.5" title="Dashboard">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+        <div>
+          <h1 class="text-lg font-semibold leading-tight">Patroni UI</h1>
+          <p class="text-sm text-white">Web UI for the Patroni REST API</p>
+        </div>
+      </a>
+      <div id="status" class="ml-auto flex items-center gap-2 text-sm"></div>
+      <button id="account-button" class="flex items-center gap-2 px-2 py-1 rounded hover:bg-white/10 text-left" title="Change password">
+        <span class="flex items-center justify-center w-7 h-7 rounded-full bg-brand-hover text-white text-xs font-bold uppercase shrink-0">
+          <span id="account-avatar">?</span>
+        </span>
+        <span id="account-username" class="text-sm font-medium"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app-main" class="hidden flex-1 min-h-0 mx-auto w-full max-w-screen-2xl px-4 py-4 grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)] gap-4">
+    <!-- Sidebar: account + actions -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 flex min-h-0 w-72 max-w-[85%] -translate-x-full flex-col gap-4 overflow-y-auto bg-slate-100 p-4 shadow-xl transition-transform duration-200 lg:static lg:inset-auto lg:z-auto lg:h-auto lg:w-auto lg:max-w-none lg:translate-x-0 lg:overflow-visible lg:bg-transparent lg:p-0 lg:shadow-none">
+      <div class="lg:hidden shrink-0">
+        <h1 class="text-lg font-semibold leading-tight text-brand">Patroni UI</h1>
+        <p class="text-sm text-slate-500">Web UI for the Patroni REST API</p>
+      </div>
+
+      <section class="shrink-0 bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-2">Actions</h2>
+        <nav id="actions-nav" class="space-y-1"></nav>
+      </section>
+
+      <section id="admin-section" class="hidden shrink-0 bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-2">Admin</h2>
+        <nav id="admin-nav" class="space-y-1"></nav>
+      </section>
+
+      <div class="shrink-0 h-px bg-slate-200"></div>
+
+      <section class="flex-1 min-h-0 flex flex-col bg-white rounded-lg shadow p-4">
+        <h2 class="shrink-0 text-sm font-semibold uppercase tracking-wide text-slate-500 mb-2">Scheduled events</h2>
+        <div id="scheduled-events" class="flex-1 min-h-0 overflow-auto space-y-2"></div>
+      </section>
+    </aside>
+
+    <div id="sidebar-backdrop" class="hidden fixed inset-0 z-40 bg-black/40 lg:hidden"></div>
+
+    <!-- Main: action content -->
+    <section class="flex-1 min-h-0">
+      <div id="main-content" class="h-full flex flex-col"></div>
+    </section>
+  </main>
+
+  <div id="modal-overlay" class="hidden fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
+    <div id="modal" class="bg-white rounded-lg shadow-xl w-full max-w-sm p-5"></div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

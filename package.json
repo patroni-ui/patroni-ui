@@ -1,0 +1,22 @@
+{
+  "name": "patroni-ui",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i web/css/input.css -o web/css/app.css --minify",
+    "build:js": "esbuild web/src/app.js --bundle --minify --outfile=web/app.js --format=iife",
+    "build": "npm run build:css && npm run build:js"
+  },
+  "devDependencies": {
+    "@codemirror/commands": "^6.7.1",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/state": "^6.5.0",
+    "@codemirror/view": "^6.36.1",
+    "codemirror": "^6.0.1",
+    "esbuild": "^0.24.2",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "@codemirror/lang-sql": "^6.10.0"
+  }
+}

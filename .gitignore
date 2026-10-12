@@ -1,0 +1,26 @@
+# binaries
+/patroni-ui
+/*.exe
+
+# frontend build artifacts (sources live in web/src and web/css/input.css)
+/web/app.js
+/web/css/app.css
+
+# node
+/node_modules/
+
+# secrets — do not commit real credentials
+/users.yaml
+
+# binary user database
+/users.db
+
+# binary cluster database
+/cluster.db
+
+# misc
+*.log
+
+./data
+/patroni-ui-data/
+/dist/

@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Streaming connectors from leader to replicas. */
+.conn {
+  fill: none;
+  stroke: url(#connGrad);
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0.35;
+}
+.conn-flow {
+  fill: none;
+  stroke: url(#connGrad);
+  stroke-width: 6.5;
+  stroke-linecap: round;
+  stroke-dasharray: 9 15;
+  animation: conn-flow 0.4s linear infinite;
+}
+@keyframes conn-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+/* Hide scrollbars while keeping the element scrollable. */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Thin, subtle scrollbars. */
+.nice-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #cbd5e1 transparent; /* Firefox */
+}
+.nice-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.nice-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.nice-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.nice-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
