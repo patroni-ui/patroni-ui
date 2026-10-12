@@ -1,6 +1,6 @@
 .PHONY: all build run clean
 
-IMAGE ?= armantarkhanian/patroni-ui
+IMAGE ?= ghcr.io/patroni-ui/patroni-ui
 VERSION ?= 0.1.0
 DIST ?= dist
 

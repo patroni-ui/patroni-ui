@@ -33,7 +33,7 @@ docker run -d \
   --name patroni-ui \
   -p 8000:8000 \
   -v "$PWD/patroni-ui-data:/var/lib/patroni-ui" \
-  armantarkhanian/patroni-ui:0.1.0
+  ghcr.io/patroni-ui/patroni-ui:0.1.0
 ```
 
 ### docker compose
@@ -41,7 +41,7 @@ docker run -d \
 ```yaml
 services:
   patroni-ui:
-    image: armantarkhanian/patroni-ui:0.1.0
+    image: ghcr.io/patroni-ui/patroni-ui:0.1.0
     container_name: patroni-ui
     restart: unless-stopped
     ports:
@@ -85,7 +85,7 @@ make build
 
 This produces:
 
-- the Docker image `armantarkhanian/patroni-ui:0.1.0` (and `:latest`);
+- the Docker image `ghcr.io/patroni-ui/patroni-ui:0.1.0` (and `:latest`);
 - `dist/patroni-ui-linux-amd64` — Linux amd64 binary;
 - `dist/patroni-ui-windows-amd64.exe` — Windows amd64 binary.
 
